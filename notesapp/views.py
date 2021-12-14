@@ -33,7 +33,6 @@ def note_detail(request, pk):
     return render(request, "update.html", {"note": note, "form": form})
 
 
-# def delete_note(request, pk):
 def delete_note(request, pk):
     note = Notes.objects.get(id=pk)
     form = NotesForm(instance=note)
@@ -43,10 +42,9 @@ def delete_note(request, pk):
     return render(request, "delete.html", {"note": note, "form": form})
 
 
-def search_page(request):
+def search_note(request):
     if request.method == 'POST':
-        search_text = request.POST['search']
-        notes = Notes.objects.filter(heading__icontains=search_text) | Notes.objects.filter(text__icontains=search_text)
-        # if notes is None:
-        #     messages.info(request, "Note not found")
-        return render(request, "search.html", {"notes": notes})
+        search_value = request.POST["search"]
+        notes = Notes.objects.filter(title__icontains=search_value) | Notes.objects.filter(text__icontains=search_value)
+        return render(request, 'search.html', {"notes": notes})
+

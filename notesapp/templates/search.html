@@ -10,10 +10,10 @@
         <div class="noteContainer">
             <div id="headingAndIconsContainer">
                 <div class="">
-                    <h4><strong>{{note.heading}}</strong></h4>
+                    <h4><strong>{{note.title}}</strong></h4>
                 </div>
                 <div id="icons">
-                    <a href=" {% url 'note' note.id %}">
+                    <a href=" {% url 'update' note.id %}">
                         <span class="span"> <button class="btn btn-primary icons"><i
                                     class="fas fa-pen"></i></button></i></span>
                     </a>
@@ -22,7 +22,7 @@
                         <span class="span"> <button class="btn btn-danger icons"><i
                             class="fas fa-trash-alt"></i></button></i></span>
                     </a>
-                    
+
 
                 </div>
 
